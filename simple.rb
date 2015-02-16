@@ -10,9 +10,7 @@ class Number < Struct.new(:value)
   def reducible?
     false
   end
-
 end
-
 
 class Add < Struct.new(:left, :right)
   def to_s
@@ -38,7 +36,6 @@ class Add < Struct.new(:left, :right)
   end
 end 
 
-
 class Multiply < Struct.new(:left, :right)
   def to_s
     "#{left} * #{right}"
@@ -63,7 +60,6 @@ class Multiply < Struct.new(:left, :right)
   end
 end
 
-
 class Boolean < Struct.new(:value)
   def to_s
     value.to_s
@@ -77,7 +73,6 @@ class Boolean < Struct.new(:value)
     false
   end
 end
-
 
 class LessThan < Struct.new(:left, :right)
   def to_s
@@ -103,7 +98,6 @@ class LessThan < Struct.new(:left, :right)
   end
 end
 
-
 class Variable < Struct.new(:name)
   def to_s
     name.to_s
@@ -119,6 +113,24 @@ class Variable < Struct.new(:name)
 
   def reduce(environment)
     environment[name]
+  end
+end
+
+class DoNothing
+  def to_s
+    'do_nothing'
+  end
+  
+  def inspect
+    "<<#{self}>>"
+  end
+
+  def ==(other_statement)
+    other_statement.instance_of?(DoNothing)
+  end
+
+  def reducible?
+    false
   end
 end
 
