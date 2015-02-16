@@ -6,7 +6,12 @@ class Number < Struct.new(:value)
   def inspect
     "<<#{self}>>"
   end
+
+  def reducible?
+    false
+  end
 end
+
 
 class Add < Struct.new(:left, :right)
   def to_s
@@ -15,6 +20,10 @@ class Add < Struct.new(:left, :right)
 
   def inspect
     "<<#{self}>>"
+  end
+
+  def reducible?
+    true
   end
 end 
 
@@ -25,6 +34,10 @@ class Multiply < Struct.new(:left, :right)
 
   def inspect
     "<<#{self}>>"
+  end
+
+  def reducible?
+    true
   end
 end
 
