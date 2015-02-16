@@ -10,6 +10,10 @@ class Number < Struct.new(:value)
   def reducible?
     false
   end
+
+  def reduce
+    raise "cannot #reduce a Number"
+  end
 end
 
 
