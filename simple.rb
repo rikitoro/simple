@@ -14,7 +14,7 @@ end
 
 class Add < Struct.new(:left, :right)
   def to_s
-    "#{left} + #{right}"
+    "(#{left} + #{right})"
   end
 
   def inspect
@@ -38,7 +38,7 @@ end
 
 class Multiply < Struct.new(:left, :right)
   def to_s
-    "#{left} * #{right}"
+    "(#{left} * #{right})"
   end
 
   def inspect
