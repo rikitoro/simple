@@ -1,7 +1,7 @@
 require_relative './expression'
 require_relative './boolean'
 require_relative './variable'
-require_relative './statement'
+require_relative './statements'
 
 class Machine < Struct.new(:statement, :environment)
   def step
