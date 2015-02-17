@@ -44,7 +44,6 @@ class Assign < Struct.new(:name, :expression)
   def evaluate(environment)
     environment.merge({ name => expression.evaluate(environment) })
   end
-
 end
 
 class If < Struct.new(:condition, :consequence, :alternative)
